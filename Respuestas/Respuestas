@@ -1,0 +1,43 @@
+1. ¿Qué pasa cuando usted ejecuta este programa?
+
+    El programa tira un error de segmentacion debido a que trata de acceder a un espacio en memoria no asignado. 
+
+2. ¿Qué muestra gdb?
+
+    El debbuger compila el programa y nos muestra el mismo tipo de error que vimos en la terminal en el punto 
+    anterior, pero con un extra que es mostrarnos la linea de codigó que causo dicho problema.
+    
+3. ¿Qué pasa cuando corre esto?¿Puede usted interpretar la salida de la herramienta anterior?
+
+    El programa se ejecuta pero muestra como salida información referente a lo ocurrido en la ejecucion. 
+    Información acerca de como se esta utilizando la memoria durante el proceso.
+
+
+4.¿Qué pasa cuando este programa se ejecuta?, ¿Puede usted usar gdb para encontrar problemas como este?, 
+¿Que dice acerca de Valgrind (de nuevo use este con la bandera --leak check=yes)?
+
+    El programa se ejecuta y termina de manera normal sin ningun problema, exceptuando el hecho de que 
+    dejo memoria perdida. El gdb no nos muestra información acerca de este problema. 
+    El valgrind efectivamente nos muestra que memoria se utilizo durante la ejecucion y cual es la cantidad
+    de memoria perdida o que no se libero. 
+    
+5. ¿Qué pasa cuando este programa se ejecuta?, ¿Qué pasa cuando se corre el programa usando valgrind?,
+¿El programa es correcto?
+    
+    El programa se ejecuta y termina ejecutadose sin ningun problema.
+    El valgrind nos muestra que memoria se utilizo durante la ejecucion y cual es la cantidad de memoria 
+    perdida o que no se libero. El programa no debe ser correcto debido a la gran cantidad de memoria
+    perdida en la ejecucion. 
+
+6. ¿El programa corre?, ¿Que pasa cuando hace uso de valgrind?
+
+    El programa corre, el valgrind tira un mensaje de error mostrando que hubo una lectura invalidad e 
+    imprime un cero. 
+
+7. Ahora pase un funny value para liberar (e.g. un puntero en la mitad del array que usted ha asignado) 
+    ¿Qué pasa?, ¿Ústed necesita herramientas para encontrar este tipo de problemas?
+
+    Al ejecutar este programa, sale en pantalla un error indicando un puntero inválido. 
+    Al utilizar valgrind, se detectan 6 errores, los cuales son generados por el apuntador inválido, 
+    pudimos darnos cuenta de este tipo de error aún sin utilizar esta herramienta.
+
